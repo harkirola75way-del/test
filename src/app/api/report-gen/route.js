@@ -5,7 +5,7 @@ export async function POST() {
   try {
     const browser = await playwright.launch({
       args: [...Chromium.args, "--no-sandbox", "--disable-setuid-sandbox"],
-      // executablePath: await Chromium.executablePath(),
+      executablePath: await Chromium.executablePath(),
       headless: true,
     });
 
