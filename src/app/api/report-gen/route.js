@@ -1,4 +1,4 @@
-import { chromium as playwright } from "playwright-core";
+import { chromium as playwright } from "playwright";
 import Chromium from "@sparticuz/chromium";
 
 export async function POST() {
