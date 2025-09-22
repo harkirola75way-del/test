@@ -1,10 +1,14 @@
-import chromium from "playwright-aws-lambda";
-// import Chromium from "@sparticuz/chromium";
+import { chromium as playwright } from "playwright-core";
+import Chromium from "@sparticuz/chromium";
 
 export async function POST() {
   try {
-    const browser = await chromium.launchChromium({
-      args: ["--no-sandbox", "--disable-setuid-sandbox"]
+    const browser = await playwright.launch({
+      args: [...Chromium.args, "--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath: await Chromium.executablePath(
+        "https://github.com/Sparticuz/chromium/releases/download/v121.0.0/chromium-v121.0.0-pack.tar"
+      ),
+      headless: true,
     });
 
     const page = await browser.newPage();
