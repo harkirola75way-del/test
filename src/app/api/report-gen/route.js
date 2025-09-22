@@ -1,5 +1,5 @@
 import { chromium as playwright } from "playwright-core";
-import Chromium from "@sparticuz/chromium";
+import Chromium from "@sparticuz/chromium-min";
 
 export async function POST() {
   try {
