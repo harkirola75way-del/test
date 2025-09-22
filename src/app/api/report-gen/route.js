@@ -1,5 +1,5 @@
-import { chromium as playwright } from "playwright";
-import Chromium from "chrome-aws-lambda";
+import { chromium as playwright } from "playwright-core";
+import Chromium from "@sparticuz/chromium";
 
 export async function POST() {
   try {
