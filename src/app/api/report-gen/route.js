@@ -1,12 +1,10 @@
-import { chromium as playwright } from "playwright-core";
-import Chromium from "@sparticuz/chromium";
+import chromium from "playwright-aws-lambda";
+// import Chromium from "@sparticuz/chromium";
 
 export async function POST() {
   try {
-    const browser = await playwright.launch({
-      args: [...Chromium.args, "--no-sandbox", "--disable-setuid-sandbox"],
-      executablePath: await Chromium.executablePath(),
-      headless: true,
+    const browser = await chromium.launchChromium({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
 
     const page = await browser.newPage();
